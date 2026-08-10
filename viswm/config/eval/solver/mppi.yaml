@@ -1,0 +1,14 @@
+# Same sampling family and the same search breadth as solver=cem (300 samples, top-30 elites),
+# differing only in how the elite set is aggregated. Included because the planner-transfer test
+# should separate "different aggregation rule inside the sampling family" from "different search
+# breadth", which is the axis that actually decides whether the planner-facing factor works.
+_target_: stable_worldmodel.solver.MPPISolver
+model: ???
+num_samples: 300
+var_scale: 1.0
+n_steps: 10  # PushT overrides to 30, matching config/eval/pusht.yaml
+topk: 30
+batch_size: 1
+device: "cuda"
+seed: ${seed}
+temperature: 0.5

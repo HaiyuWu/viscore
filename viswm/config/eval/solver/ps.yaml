@@ -1,0 +1,15 @@
+# Predictive sampling (the MJPC-style random shooting used as a baseline in much of the MPC
+# literature): draw num_samples action sequences once, keep the best, no iterative refinement.
+# Constructed as CEMSolver with n_steps=1 and topk=1, since one round with a single elite is
+# exactly random shooting -- the elite refit that makes CEM iterative never runs.
+# It varies search breadth WITHIN the sampling family: 300 starts but 1 round, against CEM's
+# 300 starts x 10 rounds, so it separates "how many starts" from "how many refinement rounds".
+_target_: stable_worldmodel.solver.CEMSolver
+model: ???
+num_samples: 300
+var_scale: 1.0
+n_steps: 1
+topk: 1
+batch_size: 1
+device: "cuda"
+seed: ${seed}

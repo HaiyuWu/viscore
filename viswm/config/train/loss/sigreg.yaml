@@ -1,0 +1,14 @@
+weight: 0.09           # regularizer (SIGReg) coefficient — independent of cls_recon.weight below
+
+regularizer:
+  _target_: module.SIGReg
+  knots: 17
+  num_proj: 1024
+
+# Optional CLS-token mask-invariance loss (ablation arm). Off by default.
+cls_recon:
+  enabled: false
+  weight: 1.0           # mask-loss weight
+  min_ratio: 0.1
+  max_ratio: 0.5
+  patch_token: false    # if true, replace CLS recon with patch-token recon

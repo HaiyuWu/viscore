@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# artifacts and outputs never belong in the repo
+cache/
+results/
+logs/
+outputs/
+wandb/
+*.h5
+*.lance/
+*.ckpt
+*.npz
+
+# stable-pretraining dumps these into the cwd on every fit
+environment*.json
+requirements_frozen*.txt

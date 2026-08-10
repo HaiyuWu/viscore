@@ -1,0 +1,20 @@
+weight: 4.5  # paper-strict formulation: loss = pred + weight * reg
+             # chosen to match paper SIGReg's effective reg/pred contribution
+             # (SIGReg λ=0.09 × ⟨SIGReg⟩=2.3 ≈ VISReg λ=4.5 × ⟨VISReg⟩=0.044)
+             # independent of cls_recon.weight below
+
+regularizer:
+  _target_: module.VISReg
+  num_projections: 1024
+  center_w: 1.0
+  scale_w: 1.0
+  shape_w: 1.0
+  scale_detach: true
+
+# Optional CLS-token mask-invariance loss (ablation arm). Off by default.
+cls_recon:
+  enabled: false
+  weight: 1.0           # mask-loss weight
+  min_ratio: 0.1
+  max_ratio: 0.5
+  patch_token: false    # if true, replace CLS recon with patch-token recon

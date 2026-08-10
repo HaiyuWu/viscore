@@ -1,0 +1,7 @@
+table,arm,objective,batch,env,run,train_seed,peak_epoch
+ood,"LeWM (SIGReg, B=128)",sigreg,128,pusht,sigreg_pusht_lambd0p09_seed403_180833,403,7
+ood,"LeWM (SIGReg, B=128)",sigreg,128,pusht,sigreg_pusht_lambd0p09_seed46_180832,46,7
+ood,"LeWM (SIGReg, B=128)",sigreg,128,pusht,sigreg_pusht_lambd0p09_seed729_180834,729,6
+ood,"VIS-WM, B=128",visreg,128,pusht,visreg_pusht_lambd4p5_lr1e-4_seed403_150685,403,9
+ood,"VIS-WM, B=128",visreg,128,pusht,visreg_pusht_lambd4p5_lr1e-4_seed46_150686,46,10
+ood,"VIS-WM, B=128",visreg,128,pusht,visreg_pusht_lambd4p5_lr1e-4_seed729_150684,729,10

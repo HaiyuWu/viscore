@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "viscore-metric"
+version = "0.1.0"
+description = "VIScore: veracity / influence / sobriety diagnostics of latent world models for planning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "VIScore authors" }]
+keywords = ["world-model", "jepa", "planning", "model-predictive-control", "representation-quality"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# The metric itself needs nothing but array libraries and torch. It does NOT depend on
+# stable-worldmodel / stable-pretraining / lightning / hydra: those are training-side and are
+# pinned separately (see reproduce/env/). Keeping the split is deliberate -- see docs/DESIGN.md.
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "torch>=2.0",
+]
+
+[project.optional-dependencies]
+# Only needed to BUILD a probe cache from an HDF5 dataset (viscore.probe).
+data = ["h5py>=3.8", "hdf5plugin>=4.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+viscore = "viscore.cli:main"
+
+[tool.setuptools]
+packages = ["viscore"]
+
+[tool.ruff]
+line-length = 100
