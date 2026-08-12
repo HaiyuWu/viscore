@@ -3,7 +3,7 @@
 
     python reproduce/download.py --tier bundle    --dest $VISCORE_HOME   # CPU repro, 3.8 GiB
     python reproduce/download.py --tier vis-wm    --dest $VISCORE_HOME   # VIS-WM ckpts, 0.9 GiB
-    python reproduce/download.py --tier pools     --dest $VISCORE_HOME   # pool ckpts, 37.8 GiB
+    python reproduce/download.py --tier pools     --dest $VISCORE_HOME   # pool ckpts, 36.7 GiB
     python reproduce/download.py --tier datasets  --dest $VISCORE_HOME   # 268 GB decompressed
     python reproduce/download.py --tier all --dest $VISCORE_HOME --dry-run
 
