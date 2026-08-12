@@ -28,7 +28,7 @@ Fetch with `reproduce/download.py`.
 ```
 vis-wm/<task>/seed<S>/vis-wm_epoch_<N>.ckpt     0.88 GiB, 39 files (reported epoch only)
 baselines-lewm/maze2d/seed729/                       0.07 GiB, 3 files
-pools/<pool>/<env>/<run>/<model>_epoch_<N>.ckpt      36.74 GiB, 547 files
+pools/<pool>/<env>/<run>/<model>_epoch_<N>.ckpt      36.74 GiB, 545 checkpoints
 pools/pool_manifest.csv, pools/pool_assignment.csv
 ```
 

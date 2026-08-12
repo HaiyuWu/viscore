@@ -58,8 +58,8 @@ data rather than on re-run evaluations:
 
 | what you need | where it is |
 |---|---|
-| checkpoints with success labels, to score your own metric on | 472 calibration-fit + 103 held-out + 20 MAZE + 16 off-split, under `pools/` in the model repository |
-| the labels themselves, per evaluation seed | `pools/success_labels.csv` (3104 evaluations, every one CEM at d = 25, 50 episodes) |
+| checkpoints with success labels, to score your own metric on | 572 labelled cells under `pools/` in the model repository: 472 on the three fitted tasks (`development` and `heldout` are subsets), 50 Cube, 20 MAZE, 30 one-per-method |
+| the labels themselves, per evaluation seed | `pools/success_labels.csv` (3056 evaluations, every one CEM at d = 25, 50 episodes) |
 | the pool definitions and the run-level split | `pools/pool_manifest.csv`, `pools/pool_assignment.csv` |
 | the third-party methods of the held-out-method pool | `download_external.py --with-code` |
 | the two calibration protocols, implemented | `tables.py`: leave-one-task-out for the first two pools, the frozen development map for the transfer pools |
