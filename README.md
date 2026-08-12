@@ -89,7 +89,25 @@ All checkpoints are on [HuggingFace](https://huggingface.co/BooBooWu/viscore). E
 |------|------|------|
 | `vis-wm/<task>/seed<S>/` | VIS-WM arms: PushT / Reacher / Two-Room / Cube × seeds 403/46/729, at the reported epoch | 0.9 GiB |
 | `baselines-lewm/maze2d/seed729/` | the SIGReg (LeWM) counterpart on MAZE | 0.07 GiB |
-| `pools/<pool>/<env>/<run>/` | every checkpoint `tab:viscore` is computed on, **organized by pool** | 37.8 GiB |
+| `pools/<pool>/<env>/<run>/` | every checkpoint behind a reported number, plus the calibration pool | 37.8 GiB |
+
+Inside `pools/`, each directory is named for what its checkpoints are *for*:
+
+| Directory | Ckpt / runs | Which reported number it produces |
+|-----------|-------------|-----------------------------------|
+| `development/` | 137 / 14 | main table block 1; the constants are fitted here |
+| `heldout/` | 103 / 33 | block 2 — the headline test, runs disjoint from development |
+| `heldout-method/` | 3 / 3 | block 3, our DINO-CLS arms (the other 27 are other groups', fetched separately) |
+| `heldout-dataset/` | 20 / 2 | block 4 — the unseen MAZE task |
+| `cube-reference/` | 50 / 5 | the parenthesised Cube column, and nothing else |
+| `calibration-fit/` | 232 / 47 | *no* reported number — these fit the frozen map blocks 3–4 apply |
+| `extra-labelled/` | 16 / 3 | *no* reported number — fully labelled, published for future work |
+
+**340 checkpoints** produce every number in the paper (313 here + 27 via
+[`reproduce/download_external.py`](reproduce/download_external.py)); **572** if you also want to
+refit the frozen calibration map from weights; **0** if you only want to recompute the tables from
+the shipped metric values. `development` and `heldout` are themselves subsets of the 472-cell
+calibration pool, which is why `calibration-fit/` holds only the 232 that are not already elsewhere.
 
 ```bash
 python reproduce/download.py --tier vis-wm --dest $VISCORE_HOME    # or --tier pools

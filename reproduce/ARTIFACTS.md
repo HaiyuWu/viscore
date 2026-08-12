@@ -47,14 +47,22 @@ SIGReg counterpart under `baselines-lewm/`.
 | `heldout` | 103 / 33 | 27 / 44 / 32 / — | fresh seeds 5501 / 60601 / 90210, three per checkpoint |
 | `heldout_method` | 23 / 23 | 7 / 8 / 8 / — | four world-modeling methods, nine seeds per checkpoint |
 | `heldout_dataset` | 20 / 2 | — (MAZE) | the unseen task, its own seeds |
-| `absent_from_split` | 16 / 3 | — / — / 16 / — | in neither fold; published, in no reported number |
+| `extra-labelled` | 16 / 3 | — / — / 16 / — | in neither fold; in no reported number, published as extra samples |
 | `calibration_fit` | 472 / 47 | 152 / 180 / 140 / — | every cell carrying a development label; 137 survive the split into `development` and 103 into `heldout`, and the frozen calibration map is fitted on all of them |
+
+Two columns answer two different questions, and conflating them is the easiest way to misread this
+file. `fold` is a property of the **training run**: which side of the run-level split it fell on
+(`dev`, `heldout`, or `unsplit` for a run the split reached neither side of). The `in_*` flags are
+properties of the **cell**: which reported number it enters. They are not the same set -- 335 cells
+belong to held-out runs, but only 103 of them are the held-out pool the paper reports, because that
+pool takes one epoch ladder per run under the three fresh evaluation seeds. Select with `in_*`,
+audit independence with `fold`.
 
 The split is at the level of the **training run**, not the evaluation seed: every constant (τ, the
 `d_tol` recipe, the calibration maps) is fitted on `development`, and no checkpoint in a test pool
 comes from a run that contributed there. `pool_assignment.csv` is the object to audit. A run absent
 from it never carried a development label; the three SIGReg Two-Room runs that land in neither fold
-are kept under `absent_from_split` rather than dropped, which is why `heldout` carries no SIGReg
+are kept under `extra-labelled` rather than dropped, which is why `heldout` carries no SIGReg
 checkpoint on Two-Room. Earlier revisions reported a separate `terminal` pool of converged
 checkpoints; 14 of its 17 runs were also in the held-out fold, so its cells are folded into
 `heldout` here (they contribute the epoch 4–10 cells).
