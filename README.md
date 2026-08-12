@@ -89,7 +89,7 @@ All checkpoints are on [HuggingFace](https://huggingface.co/BooBooWu/viscore). E
 |------|------|------|
 | `vis-wm/<task>/seed<S>/` | VIS-WM arms: PushT / Reacher / Two-Room / Cube × seeds 403/46/729, at the reported epoch | 0.9 GiB |
 | `baselines-lewm/maze2d/seed729/` | the SIGReg (LeWM) counterpart on MAZE | 0.07 GiB |
-| `pools/<pool>/<env>/<run>/` | every checkpoint `tab:viscore` is computed on, **organized by pool** | 35.0 GiB |
+| `pools/<pool>/<env>/<run>/` | every checkpoint `tab:viscore` is computed on, **organized by pool** | 37.8 GiB |
 
 ```bash
 python reproduce/download.py --tier vis-wm --dest $VISCORE_HOME    # or --tier pools

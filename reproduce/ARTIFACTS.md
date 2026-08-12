@@ -4,7 +4,7 @@ Everything is on the Hub. Nothing here is a placeholder.
 
 | | repository | size |
 |---|---|---|
-| checkpoints | [`BooBooWu/viscore`](https://huggingface.co/BooBooWu/viscore) (model) | 35.9 GiB |
+| checkpoints | [`BooBooWu/viscore`](https://huggingface.co/BooBooWu/viscore) (model) | 38.8 GiB |
 | datasets + reproduction bundle | [`BooBooWu/viscore`](https://huggingface.co/datasets/BooBooWu/viscore) (dataset) | 4.9 GiB |
 | the four base datasets | [LeWorldModel collection](https://huggingface.co/collections/quentinll/lewm) | 80.5 GiB compressed |
 
@@ -19,7 +19,7 @@ Fetch with `reproduce/download.py`.
 | reproduce `tab:viscore` | nothing — the manifest ships with the repo | 0 | `python reproduce/tables.py` |
 | reproduce the Section-4 planning tables | nothing — the labels ship with the repo | 0 | `python reproduce/planning_tables.py --strict` |
 | recompute the metric values yourself, no GPU | `bundle/` | 3.8 GiB | see [below](#cpu-only-reproduction) |
-| score the released checkpoints from pixels | `vis-wm/` or `pools/` + one base dataset | 1–35 GiB + 12–43 GiB | `--tier vis-wm` / `--tier pools` |
+| score the released checkpoints from pixels | `vis-wm/` or `pools/` + one base dataset | 1–38 GiB + 12–43 GiB | `--tier vis-wm` / `--tier pools` |
 | re-evaluate planning success | checkpoints + the base dataset for that task | | `reproduce/slurm/eval.slurm` |
 | retrain from scratch | base datasets | 268 GB decompressed | `reproduce/slurm/train.slurm` |
 
@@ -28,7 +28,7 @@ Fetch with `reproduce/download.py`.
 ```
 vis-wm/<task>/seed<S>/vis-wm_epoch_<N>.ckpt     0.88 GiB, 39 files (reported epoch only)
 baselines-lewm/maze2d/seed729/                       0.07 GiB, 3 files
-pools/<pool>/<env>/<run>/<model>_epoch_<N>.ckpt      34.99 GiB, 521 files
+pools/<pool>/<env>/<run>/<model>_epoch_<N>.ckpt      37.82 GiB, 563 files
 pools/pool_manifest.csv, pools/pool_assignment.csv
 ```
 

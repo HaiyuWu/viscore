@@ -52,7 +52,7 @@ you additionally pass `--data-home`.
 
 | what | where | size |
 |---|---|---|
-| checkpoints (VIS-WM arms + `tab:viscore` pools, by pool) | `BooBooWu/viscore` (HF model) | 35.9 GiB |
+| checkpoints (VIS-WM arms + `tab:viscore` pools, by pool) | `BooBooWu/viscore` (HF model) | 38.8 GiB |
 | MAZE + PushObj datasets, CPU-reproduction bundle | `BooBooWu/viscore` (HF dataset) | 4.9 GiB |
 | the four base datasets | `quentinll/lewm-{pusht,reacher,tworooms,cube}` — **not re-hosted here** | 80.5 GiB compressed |
 

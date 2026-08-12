@@ -28,7 +28,7 @@ The tables reproduce from files in this repository; recomputing what goes into t
 |---|---|---|---|
 | 1 | every published table, from frozen metric values and success labels | this repository only | **23/23** |
 | 2 | the metric itself, from cached latents / spectra / sobriety gaps | `download.py --tier bundle` (3.8 GiB) | 15/23 |
-| 3 | the metric from the weights, end to end | `download.py --tier pools` (35.9 GiB) and, for the method pool, `download_external.py` | 20/23 are other groups' releases |
+| 3 | the metric from the weights, end to end | `download.py --tier pools` (37.8 GiB) and, for the method pool, `download_external.py` | 20/23 are other groups' releases |
 
 Depth 1 is `python reproduce/tables.py`, and it is complete: the held-out-method block is computed
 from `pools/heldout_method_cells.csv` (metrics, frozen because scoring them needs each source's own
@@ -114,7 +114,7 @@ can be recomputed as pure algebra.
 python reproduce/download.py --tier bundle --dest $VISCORE_HOME
 ```
 
-**Score the released checkpoints from pixels** (0.9–35 GiB of checkpoints + one base dataset):
+**Score the released checkpoints from pixels** (0.9–38 GiB of checkpoints + one base dataset):
 
 ```bash
 python reproduce/download.py --tier vis-wm --dest $VISCORE_HOME     # or --tier pools
